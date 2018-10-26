@@ -7,20 +7,19 @@ block content
     +slide_column()
         .dm-fragment
             :markdown-it
-                ### `componentWillMount`
+                ### `static getDerivedStateFromProps`
 
-                Called just before the first render. It's better to just use class constructor instead.
-                It might be removed in future versions.
+                Called right before the initial render and all re-renders. Rarely used.
 
-                ### `componentWillReceiveProps`
+                ### `getSnapshotBeforeUpdate`
 
-                Called with new props, before render. Changing component's state here will not trigger another render.
-                Useful if the component's state is computed based on props.
+                This method is to allow us to capture some properties that are not stored in the state before we render that component.
+                (i.e. if user scrolled to a specific location on the page and you want to store the position and use it later)
+                Called just before React updates and commits new content to the DOM. Rarely used but can capture data that may be changing rapidly
 
-                ### `componentWillUpdate`
+                ### `componentDidCatch`
 
-                Similar to `componentWillReceiveProps`, but can't change state. Called just before render. Rarely used.
-
+                Called during the “commit” phase, so side-effects are permitted. It should be used for things like logging errors
     +slide_column()
         .dm-fragment
             :markdown-it

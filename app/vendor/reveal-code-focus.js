@@ -92,7 +92,8 @@ function updateCurrentSlide(e) {
     currentSlide = e.currentSlide;
 
     currentFragments = currentSlide.getElementsByClassName('fragment');
-    currentSlide.querySelector('pre code').classList.add('dm-code--initial');
+    var preCode = currentSlide.querySelector('pre code');
+    (preCode.length && currentSlide.querySelector('pre code').classList.add('dm-code--initial'));
 
     clearPreviousFocus();
     if (
